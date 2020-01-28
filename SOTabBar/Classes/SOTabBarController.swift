@@ -51,15 +51,15 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
     private func drawConstraint() {
         let safeAreaView = UIView()
         safeAreaView.translatesAutoresizingMaskIntoConstraints = false
-        safeAreaView.backgroundColor = SOTabBarSetting.tabBarBackground
+        safeAreaView.backgroundColor = SOTabBarSetting.backgroundColor
         self.view.addSubview(safeAreaView)
         self.view.bringSubviewToFront(safeAreaView)
         var constraints = [NSLayoutConstraint]()
         if #available(iOS 11.0, *) {
-            constraints += [containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(SOTabBarSetting.tabBarHeight)),
+            constraints += [containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(SOTabBarSetting.height)),
                             tabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)]
         } else {
-            constraints += [containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(SOTabBarSetting.tabBarHeight)),
+            constraints += [containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(SOTabBarSetting.height)),
                             tabBar.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
         }
         constraints += [containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -67,7 +67,7 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
                         containerView.topAnchor.constraint(equalTo: view.topAnchor),
                         tabBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                         tabBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                        tabBar.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarHeight),
+                        tabBar.heightAnchor.constraint(equalToConstant: SOTabBarSetting.height),
                         safeAreaView.topAnchor.constraint(equalTo: tabBar.bottomAnchor),
                         safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                         safeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

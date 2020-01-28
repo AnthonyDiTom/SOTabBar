@@ -40,13 +40,13 @@ public class SOTabBar: UIView {
     
     private let innerCircleView: UIView = {
         let view = UIView()
-        view.backgroundColor = SOTabBarSetting.tabBarBackground
+        view.backgroundColor = SOTabBarSetting.backgroundColor
         return view
     }()
     
     private let outerCircleView: UIView = {
         let view = UIView()
-        view.backgroundColor = SOTabBarSetting.tabBarTintColor
+        view.backgroundColor = SOTabBarSetting.selectedIconColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -73,17 +73,17 @@ public class SOTabBar: UIView {
     }
     
     private func dropShadow() {
-        backgroundColor = SOTabBarSetting.tabBarBackground
-        layer.shadowColor = SOTabBarSetting.tabBarShadowColor
-        layer.shadowOpacity = 0.6
-        layer.shadowOffset = CGSize(width: 0, height: -2)
-        layer.shadowRadius = 3
+        backgroundColor = SOTabBarSetting.backgroundColor
+        layer.shadowColor = SOTabBarSetting.shadowColor
+        layer.shadowOpacity = SOTabBarSetting.shadowOpacity
+        layer.shadowOffset = CGSize(width: 0, height: SOTabBarSetting.shadowHeight * -1)
+        layer.shadowRadius = SOTabBarSetting.shadowRadius
     }
     
     private func drawTabs() {
         for vc in viewControllers {
             let barView = SOTabBarItem(tabBarItem: vc.tabBarItem)
-            barView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarHeight).isActive = true
+            barView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.height).isActive = true
             barView.translatesAutoresizingMaskIntoConstraints = false
             barView.isUserInteractionEnabled = false
             self.stackView.addArrangedSubview(barView)
@@ -97,8 +97,8 @@ public class SOTabBar: UIView {
         innerCircleView.addSubview(outerCircleView)
         outerCircleView.addSubview(tabSelectedImageView)
         
-        innerCircleView.frame.size = SOTabBarSetting.tabBarCircleSize
-        innerCircleView.layer.cornerRadius = SOTabBarSetting.tabBarCircleSize.width / 2
+        innerCircleView.frame.size = SOTabBarSetting.circleSize
+        innerCircleView.layer.cornerRadius = SOTabBarSetting.circleSize.width / 2
         
         outerCircleView.layer.cornerRadius = (innerCircleView.frame.size.height - 10) / 2
         
@@ -111,8 +111,8 @@ public class SOTabBar: UIView {
             outerCircleView.widthAnchor.constraint(equalToConstant: innerCircleView.frame.size.width - 10),
             tabSelectedImageView.centerYAnchor.constraint(equalTo: outerCircleView.centerYAnchor),
             tabSelectedImageView.centerXAnchor.constraint(equalTo: outerCircleView.centerXAnchor),
-            tabSelectedImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarSizeSelectedImage),
-            tabSelectedImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarSizeSelectedImage),
+            tabSelectedImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImage),
+            tabSelectedImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImage),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.topAnchor.constraint(equalTo: self.topAnchor)
@@ -160,7 +160,7 @@ public class SOTabBar: UIView {
     
     private func animateImage() {
         tabSelectedImageView.alpha = 0
-        UIView.animate(withDuration: SOTabBarSetting.tabBarAnimationDurationTime) { [weak self] in
+        UIView.animate(withDuration: SOTabBarSetting.animationDurationTime) { [weak self] in
             self?.tabSelectedImageView.alpha = 1
         }
     }
@@ -168,7 +168,7 @@ public class SOTabBar: UIView {
     private func animateCircle(with path: CGPath) {
         let caframeAnimation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         caframeAnimation.path = path
-        caframeAnimation.duration = SOTabBarSetting.tabBarAnimationDurationTime
+        caframeAnimation.duration = SOTabBarSetting.animationDurationTime
         caframeAnimation.fillMode = .both
         caframeAnimation.isRemovedOnCompletion = false
         innerCircleView.layer.add(caframeAnimation, forKey: "circleLayerAnimationKey")
@@ -185,7 +185,7 @@ private extension SOTabBar {
     var circlePath: CGPath {
         let startPoint_X = CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
         let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let y = SOTabBarSetting.tabBarHeight * 0.1
+        let y = SOTabBarSetting.height * 0.1
         let path = UIBezierPath()
         path.move(to: CGPoint(x: startPoint_X, y: y))
         path.addLine(to: CGPoint(x: endPoint_X, y: y))
