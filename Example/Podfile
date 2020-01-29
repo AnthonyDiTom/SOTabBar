@@ -3,8 +3,7 @@ use_frameworks!
 target 'SOTabBar_Example' do
   pod 'SOTabBar', :path => '../'
 
-  target 'SOTabBar_Tests' do
-    inherit! :search_paths
+
 
     
   end

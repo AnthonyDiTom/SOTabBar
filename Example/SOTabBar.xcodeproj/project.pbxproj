@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EC96DC323E1B818005A44A1 /* tabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC96DC223E1B818005A44A1 /* tabbedViewController.swift */; };
 		0F9EDA99BEB80D8AED6D074F /* Pods_SOTabBar_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7281A52DFC50D750D057BF69 /* Pods_SOTabBar_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		0E9AE0EB9BD5A423C4F99013 /* Pods-SOTabBar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTabBar_Example.debug.xcconfig"; path = "Target Support Files/Pods-SOTabBar_Example/Pods-SOTabBar_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		0EC96DC223E1B818005A44A1 /* tabbedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbedViewController.swift; sourceTree = "<group>"; };
 		5878AD7FEB0BA0CF115565C9 /* Pods-SOTabBar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTabBar_Example.release.xcconfig"; path = "Target Support Files/Pods-SOTabBar_Example/Pods-SOTabBar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5CDC91CE44EC784ABD34ECF6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SOTabBar_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTabBar_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				0EC96DC223E1B818005A44A1 /* tabbedViewController.swift */,
 			);
 			name = "Example for SOTabBar";
 			path = SOTabBar;
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				0EC96DC323E1B818005A44A1 /* tabbedViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
