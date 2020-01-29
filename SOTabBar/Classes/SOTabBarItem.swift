@@ -43,15 +43,21 @@ class SOTabBarItem: UIView {
     private func drawConstraints() {
         self.addSubview(titleLabel)
         self.addSubview(tabImageView)
+        
+        let margin:CGFloat = -8
+        
         NSLayoutConstraint.activate([
-            tabImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            tabImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tabImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
-            tabImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
-            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: SOTabBarSetting.height),
+            
+            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 26)
+            
+            tabImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            tabImageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: margin),
+            tabImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
+            tabImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
+            
+            self.topAnchor.constraint(equalTo: tabImageView.topAnchor, constant: margin)
         ])
     }
     
@@ -61,11 +67,8 @@ class SOTabBarItem: UIView {
     
    internal func animateTabSelected() {
         tabImageView.alpha = 1
-        titleLabel.alpha = 0
         UIView.animate(withDuration: SOTabBarSetting.animationDurationTime) { [weak self] in
-            self?.titleLabel.alpha = 1
-            self?.titleLabel.frame.origin.y = SOTabBarSetting.height / 1.8
-            self?.tabImageView.frame.origin.y = -5
+            //self?.tabImageView.frame.origin.y = -5
             self?.tabImageView.alpha = 0
         }
     }
@@ -73,8 +76,7 @@ class SOTabBarItem: UIView {
     internal func animateTabDeSelect() {
         tabImageView.alpha = 1
         UIView.animate(withDuration: SOTabBarSetting.animationDurationTime) { [weak self] in
-            self?.titleLabel.frame.origin.y = SOTabBarSetting.height
-            self?.tabImageView.frame.origin.y = (SOTabBarSetting.height / 2) - CGFloat(SOTabBarSetting.imageSize / 2)
+            //self?.tabImageView.frame.origin.y = 5
             self?.tabImageView.alpha = 1
         }
     }

@@ -56,10 +56,10 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
         self.view.bringSubviewToFront(safeAreaView)
         var constraints = [NSLayoutConstraint]()
         if #available(iOS 11.0, *) {
-            constraints += [containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(SOTabBarSetting.height)),
+            constraints += [containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(tabBar.frame.height)),
                             tabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)]
         } else {
-            constraints += [containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(SOTabBarSetting.height)),
+            constraints += [containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(tabBar.frame.height)),
                             tabBar.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
         }
         constraints += [containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -67,7 +67,6 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
                         containerView.topAnchor.constraint(equalTo: view.topAnchor),
                         tabBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                         tabBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                        tabBar.heightAnchor.constraint(equalToConstant: SOTabBarSetting.height),
                         safeAreaView.topAnchor.constraint(equalTo: tabBar.bottomAnchor),
                         safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                         safeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

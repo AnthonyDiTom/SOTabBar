@@ -83,7 +83,7 @@ public class SOTabBar: UIView {
     private func drawTabs() {
         for vc in viewControllers {
             let barView = SOTabBarItem(tabBarItem: vc.tabBarItem)
-            barView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.height).isActive = true
+            //barView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.height).isActive = true
             barView.translatesAutoresizingMaskIntoConstraints = false
             barView.isUserInteractionEnabled = false
             self.stackView.addArrangedSubview(barView)
@@ -185,7 +185,7 @@ private extension SOTabBar {
     var circlePath: CGPath {
         let startPoint_X = CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
         let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let y = SOTabBarSetting.height * 0.1
+        let y:CGFloat = self.stackView.frame.height * 0.1
         let path = UIBezierPath()
         path.move(to: CGPoint(x: startPoint_X, y: y))
         path.addLine(to: CGPoint(x: endPoint_X, y: y))

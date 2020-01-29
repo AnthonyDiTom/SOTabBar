@@ -10,7 +10,6 @@ import Foundation
 // Here you can customize the tab bar to meet your neededs
 public struct SOTabBarSetting {
     
-    public static var height: CGFloat = 66
     public static var selectedIconColor: UIColor = UIColor(red: 250/255, green: 51/255, blue: 24/255, alpha: 1)
     public static var backgroundColor: UIColor = UIColor.white
     public static var circleSize = CGSize(width: 65, height: 65)

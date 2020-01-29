@@ -51,7 +51,8 @@ class ViewController: SOTabBarController {
         SOTabBarSetting.textColor = blue
         SOTabBarSetting.textFont = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         SOTabBarSetting.backgroundColor = lightBlue
-
+        SOTabBarSetting.animationDurationTime = 0.2
+        
         SOTabBarSetting.shadowHeight = 3
         SOTabBarSetting.shadowRadius = 5
         SOTabBarSetting.shadowOpacity = 0.3
@@ -61,6 +62,6 @@ class ViewController: SOTabBarController {
 
 extension ViewController: SOTabBarControllerDelegate {
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
-        print(viewController.tabBarItem.title ?? "")
+        //print(viewController.tabBarItem.title ?? "")
     }
 }
