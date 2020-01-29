@@ -46,7 +46,7 @@ public class SOTabBar: UIView {
     
     private let outerCircleView: UIView = {
         let view = UIView()
-        view.backgroundColor = SOTabBarSetting.selectedIconColor
+        view.backgroundColor = SOTabBarSetting.selectedColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -83,7 +83,6 @@ public class SOTabBar: UIView {
     private func drawTabs() {
         for vc in viewControllers {
             let barView = SOTabBarItem(tabBarItem: vc.tabBarItem)
-            //barView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.height).isActive = true
             barView.translatesAutoresizingMaskIntoConstraints = false
             barView.isUserInteractionEnabled = false
             self.stackView.addArrangedSubview(barView)
@@ -136,6 +135,7 @@ public class SOTabBar: UIView {
     
     private func didSelectTab(index: Int) {
         if index + 1 == selectedIndex {return}
+        
         animateTitle(index: index)
  
         previousSelectedIndex = selectedIndex

@@ -68,7 +68,8 @@ class SOTabBarItem: UIView {
    internal func animateTabSelected() {
         tabImageView.alpha = 1
         UIView.animate(withDuration: SOTabBarSetting.animationDurationTime) { [weak self] in
-            //self?.tabImageView.frame.origin.y = -5
+            self?.titleLabel.textColor = SOTabBarSetting.selectedColor
+            self?.titleLabel.font = SOTabBarSetting.textFontSelected
             self?.tabImageView.alpha = 0
         }
     }
@@ -76,7 +77,8 @@ class SOTabBarItem: UIView {
     internal func animateTabDeSelect() {
         tabImageView.alpha = 1
         UIView.animate(withDuration: SOTabBarSetting.animationDurationTime) { [weak self] in
-            //self?.tabImageView.frame.origin.y = 5
+            self?.titleLabel.textColor = SOTabBarSetting.textColor
+            self?.titleLabel.font = SOTabBarSetting.textFont
             self?.tabImageView.alpha = 1
         }
     }

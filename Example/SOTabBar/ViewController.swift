@@ -46,7 +46,7 @@ class ViewController: SOTabBarController {
         
         
         SOTabBarSetting.circleSize = CGSize(width: 50, height: 50)
-        SOTabBarSetting.selectedIconColor = orange
+        SOTabBarSetting.selectedColor = orange
         
         SOTabBarSetting.textColor = blue
         SOTabBarSetting.textFont = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
