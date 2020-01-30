@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="138" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Tabbed View Controller-->
         <scene sceneID="CXE-1b-lzV">
             <objects>
-                <viewController storyboardIdentifier="HOME_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kkU-Gb-oOJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HOME_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kkU-Gb-oOJ" customClass="tabbedViewController" customModule="SOTabBar_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RGl-we-4sF"/>
                         <viewControllerLayoutGuide type="bottom" id="4FO-eF-ibc"/>
@@ -36,12 +36,25 @@
                     <view key="view" contentMode="scaleToFill" id="xcV-uj-KGi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cR-9Q-6fW">
+                                <rect key="frame" x="146.5" y="318.5" width="82" height="30"/>
+                                <state key="normal" title="Remove tab"/>
+                                <connections>
+                                    <action selector="removeTab:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="lfy-XH-KKf"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6cR-9Q-6fW" firstAttribute="centerX" secondItem="xcV-uj-KGi" secondAttribute="centerX" id="N4U-Lq-zW6"/>
+                            <constraint firstItem="6cR-9Q-6fW" firstAttribute="centerY" secondItem="xcV-uj-KGi" secondAttribute="centerY" id="o1u-6g-47t"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nid-ng-6VS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1350" y="-479"/>
+            <point key="canvasLocation" x="1338" y="-742"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="m04-Db-FER">

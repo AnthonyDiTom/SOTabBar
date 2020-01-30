@@ -21,21 +21,22 @@ class ViewController: SOTabBarController {
         
         self.delegate = self
         
-        let texts = ["Accueil","Sinistres","Factures","Courtier","Compte"] //["Home", "Schade", "Facturen", "Makelaar", "Mijn account"]
+        let texts = ["Accueil","Sinistres","Factures","Conversatons"] 
         
-        let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HOME_ID")
+        let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HOME_ID") as! tabbedViewController
+        homeStoryboard.didTapRemoveTab = { [weak self] index  in
+            //self?.removeTab(at:index)
+        }
         let chatStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CHAT_ID")
         let sleepStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SLEEP_ID")
         let musicStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MUSIC_ID")
-        let meStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ME_ID")
         
-        homeStoryboard.tabBarItem = UITabBarItem(title: texts[0], image: UIImage(named: "home"), selectedImage: UIImage(named: "home_Selected"))
-        chatStoryboard.tabBarItem = UITabBarItem(title: texts[1], image: UIImage(named: "chat"), selectedImage: UIImage(named: "chat_Selected"))
-        sleepStoryboard.tabBarItem = UITabBarItem(title: texts[2], image: UIImage(named: "moon"), selectedImage: UIImage(named: "moon_Selected"))
-        musicStoryboard.tabBarItem = UITabBarItem(title: texts[3], image: UIImage(named: "music"), selectedImage: UIImage(named: "music_Selected"))
-        meStoryboard.tabBarItem = UITabBarItem(title: texts[4], image: UIImage(named: "menu"), selectedImage: UIImage(named: "menu_Selected"))
+        homeStoryboard.tabBarItem = UITabBarItem(title: texts[0], image: UIImage(named: "Home"), selectedImage: UIImage(named: "Home_Filled"))
+        chatStoryboard.tabBarItem = UITabBarItem(title: texts[1], image: UIImage(named: "Claims"), selectedImage: UIImage(named: "Claims_Filled"))
+        sleepStoryboard.tabBarItem = UITabBarItem(title: texts[2], image: UIImage(named: "Invoices"), selectedImage: UIImage(named: "Invoices_Filled"))
+        musicStoryboard.tabBarItem = UITabBarItem(title: texts[3], image: UIImage(named: "Messages"), selectedImage: UIImage(named: "Messages - Filled"))
            
-        viewControllers = [homeStoryboard, chatStoryboard,sleepStoryboard,musicStoryboard,meStoryboard]
+        viewControllers = [homeStoryboard, chatStoryboard,sleepStoryboard,musicStoryboard]
     }
     
     
@@ -52,7 +53,7 @@ class ViewController: SOTabBarController {
         SOTabBarSetting.textFont = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         SOTabBarSetting.backgroundColor = lightBlue
         SOTabBarSetting.animationDurationTime = 0.2
-        
+        SOTabBarSetting.imageSize = 30
         SOTabBarSetting.shadowHeight = 3
         SOTabBarSetting.shadowRadius = 5
         SOTabBarSetting.shadowOpacity = 0.3
@@ -62,6 +63,8 @@ class ViewController: SOTabBarController {
 
 extension ViewController: SOTabBarControllerDelegate {
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
-        //print(viewController.tabBarItem.title ?? "")
+        print(viewController.tabBarItem.title ?? "")
+        
+        //tabBarController.removeTab(at:3)
     }
 }

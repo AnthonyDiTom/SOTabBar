@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Invoices - Filled.png",
+      "filename" : "Invoices2 - Filled.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Invoices - Filled-1.png",
+      "filename" : "Invoices2 - Filled-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Invoices - Filled-2.png",
+      "filename" : "Invoices2 - Filled-2.png",
       "scale" : "3x"
     }
   ],

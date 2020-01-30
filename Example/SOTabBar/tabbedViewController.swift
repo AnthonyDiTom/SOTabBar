@@ -1,3 +1,4 @@
+
 //
 //  tabbedViewController.swift
 //  SOTabBar_Example
@@ -10,6 +11,8 @@ import UIKit
 
 class tabbedViewController: UIViewController {
 
+    var didTapRemoveTab: ((_ index: Int)-> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +20,9 @@ class tabbedViewController: UIViewController {
     }
     
 
+    @IBAction func removeTab(_ sender: Any) {
+        didTapRemoveTab?(2)
+    }
     /*
     // MARK: - Navigation
 
