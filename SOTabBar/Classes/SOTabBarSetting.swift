@@ -15,9 +15,14 @@ public struct SOTabBarSetting {
     public static var circleSize = CGSize(width: 65, height: 65)
     public static var imageSize: CGFloat = 25
     
+    public static var iconsTopMargin: CGFloat = 8
+    public static var iconsBottomMargin: CGFloat = 4
+    public static var titlesBottomMargin: CGFloat = 5
+    
     public static var textColor: UIColor = .blue
     public static var textFont: UIFont = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.semibold)
     public static var textFontSelected: UIFont = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
+    
     public static var shadowColor = UIColor.lightGray.cgColor
     public static var shadowOpacity: Float = 0.2
     public static var shadowRadius: CGFloat = 7

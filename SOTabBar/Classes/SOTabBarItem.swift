@@ -44,20 +44,22 @@ class SOTabBarItem: UIView {
         self.addSubview(titleLabel)
         self.addSubview(tabImageView)
         
-        let margin:CGFloat = -8
+        let marginTop:CGFloat = SOTabBarSetting.iconsTopMargin * -1
+        let marginBottom:CGFloat = SOTabBarSetting.iconsBottomMargin * -1
+        let textMarginBottom:CGFloat = SOTabBarSetting.titlesBottomMargin * -1
         
         NSLayoutConstraint.activate([
             
-            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: textMarginBottom),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             tabImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tabImageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -4),
+            tabImageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: marginBottom),
             tabImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
             tabImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
             
-            self.topAnchor.constraint(equalTo: tabImageView.topAnchor, constant: margin)
+            self.topAnchor.constraint(equalTo: tabImageView.topAnchor, constant: marginTop)
         ])
     }
     
