@@ -25,7 +25,7 @@ class ViewController: SOTabBarController {
         
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HOME_ID") as! tabbedViewController
         homeStoryboard.didTapRemoveTab = { [weak self] index  in
-            //self?.removeTab(at:index)
+            
         }
         let chatStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CHAT_ID")
         let sleepStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SLEEP_ID")
@@ -62,9 +62,13 @@ class ViewController: SOTabBarController {
 }
 
 extension ViewController: SOTabBarControllerDelegate {
+    
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController) {
         print(viewController.tabBarItem.title ?? "")
-        
-        //tabBarController.removeTab(at:3)
+    }
+    
+    func tabBarController(_ tabBarController: SOTabBarController, didTapSelectedTab viewController: UIViewController) {
+        print("re tap to selected tab \(viewController.tabBarItem.title ?? "nil")")
+
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 class SOTabBarItem: UIView {
     
     let image: UIImage
@@ -53,7 +53,7 @@ class SOTabBarItem: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             tabImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tabImageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: margin),
+            tabImageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -4),
             tabImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
             tabImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.imageSize),
             

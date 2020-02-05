@@ -9,12 +9,13 @@
 import UIKit
 
 // use this protocol to detect when a tab bar item is pressed
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 protocol SOTabBarDelegate: AnyObject {
      func tabBar(_ tabBar: SOTabBar, didSelectTabAt index: Int)
+     func tabBar(_ tabBar: SOTabBar, didTapSelectedTabAt index: Int)
 }
 
-@available(iOS 10.0, *)
+
 public class SOTabBar: UIView {
     
    internal var viewControllers = [UIViewController]() {
@@ -110,17 +111,15 @@ public class SOTabBar: UIView {
             outerCircleView.widthAnchor.constraint(equalToConstant: innerCircleView.frame.size.width - 10),
             tabSelectedImageView.centerYAnchor.constraint(equalTo: outerCircleView.centerYAnchor),
             tabSelectedImageView.centerXAnchor.constraint(equalTo: outerCircleView.centerXAnchor),
-            tabSelectedImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImageSize),
-            tabSelectedImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImageSize),
+            tabSelectedImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImage),
+            tabSelectedImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImage),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.topAnchor.constraint(equalTo: self.topAnchor)
         ]
-        if #available(iOS 11.0, *) {
-            constraints.append(stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor))
-        } else {
-            constraints.append(stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor))
-        }
+
+        constraints.append(stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor))
+
         NSLayoutConstraint.activate(constraints)
     }
     
@@ -134,7 +133,10 @@ public class SOTabBar: UIView {
     }
     
     private func didSelectTab(index: Int) {
-        if index + 1 == selectedIndex {return}
+        if index + 1 == selectedIndex {
+            delegate?.tabBar(self, didTapSelectedTabAt: index)
+            return
+        }
         
         animateTitle(index: index)
  
@@ -175,7 +177,7 @@ public class SOTabBar: UIView {
     }
 }
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 private extension SOTabBar {
 
     var tabWidth: CGFloat {

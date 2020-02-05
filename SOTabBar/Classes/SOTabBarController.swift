@@ -7,12 +7,13 @@
 //
 import UIKit
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 public protocol SOTabBarControllerDelegate: NSObjectProtocol {
     func tabBarController(_ tabBarController: SOTabBarController, didSelect viewController: UIViewController)
+    func tabBarController(_ tabBarController: SOTabBarController, didTapSelectedTab viewController: UIViewController)
 }
 
-@available(iOS 10.0, *)
+@available(iOS 11.0, *)
 open class SOTabBarController: UIViewController, SOTabBarDelegate {
     
     weak open var delegate: SOTabBarControllerDelegate?
@@ -55,14 +56,10 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
         self.view.addSubview(safeAreaView)
         self.view.bringSubviewToFront(safeAreaView)
         var constraints = [NSLayoutConstraint]()
-        if #available(iOS 11.0, *) {
-            constraints += [containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(tabBar.frame.height)),
-                            tabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)]
-        } else {
-            constraints += [containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(tabBar.frame.height)),
-                            tabBar.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
-        }
-        constraints += [containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+        constraints += [containerView.bottomAnchor.constraint(equalTo: tabBar.topAnchor),
+                        tabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                         containerView.topAnchor.constraint(equalTo: view.topAnchor),
                         tabBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -72,6 +69,10 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
                         safeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                         safeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func tabBar(_ tabBar: SOTabBar, didTapSelectedTabAt index: Int) {
+        self.delegate?.tabBarController(self, didTapSelectedTab: viewControllers[index])
     }
     
     func tabBar(_ tabBar: SOTabBar, didSelectTabAt index: Int) {
