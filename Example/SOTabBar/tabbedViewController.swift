@@ -12,6 +12,8 @@ import UIKit
 class tabbedViewController: UIViewController {
 
     var didTapRemoveTab: ((_ index: Int)-> Void)?
+    var didTapTranslate: (()-> Void)?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +25,9 @@ class tabbedViewController: UIViewController {
     @IBAction func removeTab(_ sender: Any) {
         didTapRemoveTab?(2)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func translate(_ sender: Any) {
+        didTapTranslate?()
     }
-    */
-
+    
 }

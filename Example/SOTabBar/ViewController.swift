@@ -22,11 +22,18 @@ class ViewController: SOTabBarController {
         self.delegate = self
         
         let texts = ["Accueil","Sinistres","Factures","Conversatons"] 
+        let textsUpdated = ["Home","Claims","Bills","Messages","toMuchContent"]
         
         let homeStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HOME_ID") as! tabbedViewController
+        
         homeStoryboard.didTapRemoveTab = { [weak self] index  in
-            
+         
         }
+        
+        homeStoryboard.didTapTranslate = { [weak self]  in
+            self?.updateTitles(textsUpdated)
+        }
+        
         let chatStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CHAT_ID")
         let sleepStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SLEEP_ID")
         let musicStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MUSIC_ID")

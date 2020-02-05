@@ -73,6 +73,21 @@ public class SOTabBar: UIView {
         dropShadow()
     }
     
+    public func updateTitles(_ titles:[String]) {
+        
+        var index: Int = 0
+        for view in stackView.arrangedSubviews {
+            
+            guard let tab = view as? SOTabBarItem, titles.indices.contains(index) else {
+                return
+            }
+            
+            tab.titleLabel.text = titles[index]
+            index = index + 1
+            
+        }
+    }
+    
     private func dropShadow() {
         backgroundColor = SOTabBarSetting.backgroundColor
         layer.shadowColor = SOTabBarSetting.shadowColor

@@ -27,6 +27,10 @@ open class SOTabBarController: UIViewController, SOTabBarDelegate {
         }
     }
     
+    public func updateTitles(_ titles:[String]) {
+        tabBar.updateTitles(titles)
+    }
+    
     private lazy var tabBar: SOTabBar = {
         let tabBar = SOTabBar()
         tabBar.delegate = self

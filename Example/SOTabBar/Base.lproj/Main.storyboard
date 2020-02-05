@@ -37,18 +37,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cR-9Q-6fW">
-                                <rect key="frame" x="146.5" y="318.5" width="82" height="30"/>
-                                <state key="normal" title="Remove tab"/>
-                                <connections>
-                                    <action selector="removeTab:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="lfy-XH-KKf"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-Jz-nnT">
+                                <rect key="frame" x="146.5" y="298.5" width="82" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cR-9Q-6fW">
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
+                                        <state key="normal" title="Remove tab"/>
+                                        <connections>
+                                            <action selector="removeTab:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="lfy-XH-KKf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAb-0F-Cx6">
+                                        <rect key="frame" x="0.0" y="40" width="82" height="30"/>
+                                        <state key="normal" title="Translate"/>
+                                        <connections>
+                                            <action selector="translate:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="apt-bG-BlO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6cR-9Q-6fW" firstAttribute="centerX" secondItem="xcV-uj-KGi" secondAttribute="centerX" id="N4U-Lq-zW6"/>
-                            <constraint firstItem="6cR-9Q-6fW" firstAttribute="centerY" secondItem="xcV-uj-KGi" secondAttribute="centerY" id="o1u-6g-47t"/>
+                            <constraint firstItem="6Uq-Jz-nnT" firstAttribute="centerY" secondItem="xcV-uj-KGi" secondAttribute="centerY" id="VSn-SL-MWa"/>
+                            <constraint firstItem="6Uq-Jz-nnT" firstAttribute="centerX" secondItem="xcV-uj-KGi" secondAttribute="centerX" id="ZrF-Um-Eq5"/>
                         </constraints>
                     </view>
                 </viewController>
