@@ -9,25 +9,27 @@
 
 import UIKit
 
-class tabbedViewController: UIViewController {
+class homeViewController: UIViewController {
 
-    var didTapRemoveTab: ((_ index: Int)-> Void)?
+    var didTapRemoveTab: (()-> Void)?
+    var didTapRemoveCurrentTab: (()-> Void)?
     var didTapTranslate: (()-> Void)?
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    var didTapAddTab: (()-> Void)?
     
 
     @IBAction func removeTab(_ sender: Any) {
-        didTapRemoveTab?(2)
+        didTapRemoveTab?()
     }
 
+    @IBAction func removeCurrentTab(_ sender: Any) {
+        didTapRemoveCurrentTab?()
+    }
+    
     @IBAction func translate(_ sender: Any) {
         didTapTranslate?()
     }
     
+    @IBAction func addTab(_ sender: Any) {
+        didTapAddTab?()
+    }
 }

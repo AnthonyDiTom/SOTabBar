@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="138" y="134"/>
         </scene>
-        <!--Tabbed View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="CXE-1b-lzV">
             <objects>
-                <viewController storyboardIdentifier="HOME_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kkU-Gb-oOJ" customClass="tabbedViewController" customModule="SOTabBar_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HOME_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kkU-Gb-oOJ" customClass="homeViewController" customModule="SOTabBar_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RGl-we-4sF"/>
                         <viewControllerLayoutGuide type="bottom" id="4FO-eF-ibc"/>
@@ -38,17 +38,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-Jz-nnT">
-                                <rect key="frame" x="146.5" y="298.5" width="82" height="70"/>
+                                <rect key="frame" x="121" y="258.5" width="133" height="150"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G44-z6-Xt9">
+                                        <rect key="frame" x="0.0" y="0.0" width="133" height="30"/>
+                                        <state key="normal" title="Add tab"/>
+                                        <connections>
+                                            <action selector="addTab:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="EO4-L8-ocN"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cR-9Q-6fW">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
+                                        <rect key="frame" x="0.0" y="40" width="133" height="30"/>
                                         <state key="normal" title="Remove tab"/>
                                         <connections>
                                             <action selector="removeTab:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="lfy-XH-KKf"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXb-qz-9BI">
+                                        <rect key="frame" x="0.0" y="80" width="133" height="30"/>
+                                        <state key="normal" title="RemoveCurrent tab"/>
+                                        <connections>
+                                            <action selector="removeCurrentTab:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="esK-b5-Ned"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAb-0F-Cx6">
-                                        <rect key="frame" x="0.0" y="40" width="82" height="30"/>
+                                        <rect key="frame" x="0.0" y="120" width="133" height="30"/>
                                         <state key="normal" title="Translate"/>
                                         <connections>
                                             <action selector="translate:" destination="kkU-Gb-oOJ" eventType="touchUpInside" id="apt-bG-BlO"/>

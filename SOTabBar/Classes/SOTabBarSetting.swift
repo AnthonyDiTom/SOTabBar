@@ -28,7 +28,7 @@ public struct SOTabBarSetting {
     public static var shadowRadius: CGFloat = 7
     public static var shadowHeight: CGFloat = 4
     
-    public static var selectedImage: CGFloat = 20
+    public static var selectedImageSize: CGFloat = 20
     public static var animationDurationTime: Double = 0.4
     
 }

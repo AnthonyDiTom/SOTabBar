@@ -126,8 +126,8 @@ public class SOTabBar: UIView {
             outerCircleView.widthAnchor.constraint(equalToConstant: innerCircleView.frame.size.width - 10),
             tabSelectedImageView.centerYAnchor.constraint(equalTo: outerCircleView.centerYAnchor),
             tabSelectedImageView.centerXAnchor.constraint(equalTo: outerCircleView.centerXAnchor),
-            tabSelectedImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImage),
-            tabSelectedImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImage),
+            tabSelectedImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImageSize),
+            tabSelectedImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.selectedImageSize),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.topAnchor.constraint(equalTo: self.topAnchor)
